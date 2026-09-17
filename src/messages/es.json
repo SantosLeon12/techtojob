@@ -161,5 +161,48 @@
     ],
     "statement": "No todo empieza con una vacante. A veces empieza con una conversación.",
     "cta": "Conocer la comunidad"
+  },
+  "testimonials": {
+    "eyebrow": "Dentro de la comunidad",
+    "title": "Las mejores conexiones empiezan entre personas",
+    "description": "TechToJob se construye alrededor de quienes participan, comparten lo que saben y encuentran nuevas formas de colaborar dentro del sector.",
+    "disclosure": "Testimonios de muestra para la propuesta del torneo.",
+    "entries": [
+      {
+        "name": "Perfil 01",
+        "role": "Frontend Developer",
+        "quote": "Encontrar un espacio donde puedes hablar de lo que estás construyendo cambia mucho la forma de hacer networking.",
+        "image": null,
+        "profileUrl": null
+      },
+      {
+        "name": "Perfil 02",
+        "role": "Backend Developer",
+        "quote": "Compartir soluciones y recibir feedback de otros perfiles técnicos aporta mucho más que limitarse a publicar un currículum.",
+        "image": null,
+        "profileUrl": null
+      },
+      {
+        "name": "Perfil 03",
+        "role": "UX/UI Designer",
+        "quote": "La comunidad permite conocer cómo piensa y trabaja la gente antes de que exista una oportunidad formal.",
+        "image": null,
+        "profileUrl": null
+      },
+      {
+        "name": "Perfil 04",
+        "role": "Talent Acquisition",
+        "quote": "Poder descubrir perfiles por lo que comparten y construyen aporta contexto que una candidatura tradicional no siempre muestra.",
+        "image": null,
+        "profileUrl": null
+      },
+      {
+        "name": "Perfil 05",
+        "role": "Mobile Developer",
+        "quote": "Los torneos y las conversaciones técnicas hacen que participar también sea una forma de demostrar lo que sabes hacer.",
+        "image": null,
+        "profileUrl": null
+      }
+    ]
   }
 }
