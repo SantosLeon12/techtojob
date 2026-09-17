@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Container from "@/components/ui/Container";
-import messages from "@/messages/es.json";
+import { getSiteMessages } from "@/i18n/messages";
 import styles from "./TestimonialsSection.module.css";
 
 type Testimonial = {
@@ -11,7 +11,8 @@ type Testimonial = {
   profileUrl: string | null;
 };
 
-export default function TestimonialsSection() {
+export default async function TestimonialsSection() {
+  const messages = await getSiteMessages();
   const { testimonials } = messages;
   const entries: Testimonial[] = testimonials.entries;
 

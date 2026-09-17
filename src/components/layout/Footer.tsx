@@ -1,11 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
+import { getLocale } from "next-intl/server";
 import Container from "@/components/ui/Container";
 import { DISCORD_URL, FOOTER_PENDING_URLS } from "@/lib/constants";
-import messages from "@/messages/es.json";
+import { getSiteMessages } from "@/i18n/messages";
 import styles from "./Footer.module.css";
 
-export default function Footer() {
+export default async function Footer() {
+  const messages = await getSiteMessages();
+  const locale = await getLocale();
   const { footer } = messages;
   const communityLinks = [
     { href: "#como-funciona", label: footer.howItWorks },
@@ -20,7 +23,7 @@ export default function Footer() {
       <Container>
         <div className={styles.top}>
           <div className={styles.brand}>
-            <Link href="/" aria-label={footer.brandHomeLabel} className={styles.brandLink}>
+            <Link href={`/${locale}`} aria-label={footer.brandHomeLabel} className={styles.brandLink}>
               <Image src="/brand/symbol-negative.svg" alt="" width={33} height={33} />
               <span>{footer.brandName}</span>
             </Link>

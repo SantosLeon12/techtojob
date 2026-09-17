@@ -1,10 +1,11 @@
 import { ArrowUpRight } from "lucide-react";
 import Container from "@/components/ui/Container";
 import { DISCORD_URL } from "@/lib/constants";
-import messages from "@/messages/es.json";
+import { getSiteMessages } from "@/i18n/messages";
 import HeroNetwork from "./hero/HeroNetwork";
 
-export default function HeroSection() {
+export default async function HeroSection() {
+  const messages = await getSiteMessages();
   return (
     <section aria-labelledby="hero-title" className="overflow-hidden bg-background">
       <Container className="grid items-center gap-7 pb-12 pt-16 sm:gap-10 sm:pb-14 sm:pt-20 lg:grid-cols-[minmax(0,1.03fr)_minmax(0,0.97fr)] lg:gap-2 lg:pb-16 lg:pt-24 xl:pt-28">

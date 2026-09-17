@@ -1,8 +1,9 @@
 import Container from "@/components/ui/Container";
-import messages from "@/messages/es.json";
+import { getSiteMessages } from "@/i18n/messages";
 import styles from "./HowItWorksSection.module.css";
 
-export default function HowItWorksSection() {
+export default async function HowItWorksSection() {
+  const messages = await getSiteMessages();
   const { howItWorks } = messages;
 
   return (

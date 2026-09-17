@@ -1,10 +1,11 @@
 import { ArrowUpRight } from "lucide-react";
 import Container from "@/components/ui/Container";
 import { DISCORD_URL } from "@/lib/constants";
-import messages from "@/messages/es.json";
+import { getSiteMessages } from "@/i18n/messages";
 import styles from "./FinalCtaSection.module.css";
 
-export default function FinalCtaSection() {
+export default async function FinalCtaSection() {
+  const messages = await getSiteMessages();
   const { finalCta } = messages;
 
   return (

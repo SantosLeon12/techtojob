@@ -1,8 +1,9 @@
 import Container from "@/components/ui/Container";
-import messages from "@/messages/es.json";
+import { getSiteMessages } from "@/i18n/messages";
 import styles from "./NewsletterSection.module.css";
 
-export default function NewsletterSection() {
+export default async function NewsletterSection() {
+  const messages = await getSiteMessages();
   const { newsletter } = messages;
 
   return (

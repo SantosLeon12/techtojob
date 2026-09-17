@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { BriefcaseBusiness, Code2, Trophy, UsersRound } from "lucide-react";
-import messages from "@/messages/es.json";
+import { getSiteMessages } from "@/i18n/messages";
 import styles from "./HeroNetwork.module.css";
 
-export default function HeroNetwork() {
+export default async function HeroNetwork() {
+  const messages = await getSiteMessages();
   const { network } = messages.hero;
 
   return (

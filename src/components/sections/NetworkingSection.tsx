@@ -1,10 +1,11 @@
 import { ArrowUpRight } from "lucide-react";
 import Container from "@/components/ui/Container";
 import { DISCORD_URL } from "@/lib/constants";
-import messages from "@/messages/es.json";
+import { getSiteMessages } from "@/i18n/messages";
 import styles from "./NetworkingSection.module.css";
 
-export default function NetworkingSection() {
+export default async function NetworkingSection() {
+  const messages = await getSiteMessages();
   const { networking } = messages;
 
   return (

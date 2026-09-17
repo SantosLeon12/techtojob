@@ -1,25 +1,44 @@
 import Image from "next/image";
 import Link from "next/link";
+import { getLocale } from "next-intl/server";
 import { ArrowUpRight, Menu } from "lucide-react";
 import Container from "@/components/ui/Container";
 import { DISCORD_URL } from "@/lib/constants";
-import messages from "@/messages/es.json";
+import { getSiteMessages } from "@/i18n/messages";
 
-const navigation = [
-  { href: "#como-funciona", label: messages.header.navigation.howItWorks },
-  { href: "#talento", label: messages.header.navigation.talent },
-  { href: "#empresas", label: messages.header.navigation.companies },
-  { href: "#torneos", label: messages.header.navigation.tournaments },
-  { href: "#comunidad", label: messages.header.navigation.community },
-  { href: "#noticias", label: messages.header.navigation.news },
-];
+export default async function Header() {
+  const messages = await getSiteMessages();
+  const locale = await getLocale();
+  const navigation = [
+    { href: "#como-funciona", label: messages.header.navigation.howItWorks },
+    { href: "#talento", label: messages.header.navigation.talent },
+    { href: "#empresas", label: messages.header.navigation.companies },
+    { href: "#torneos", label: messages.header.navigation.tournaments },
+    { href: "#comunidad", label: messages.header.navigation.community },
+    { href: "#noticias", label: messages.header.navigation.news },
+  ];
+  const localeLinks = (
+    <div role="group" aria-label={messages.header.languageLabel} className="flex items-center gap-1 text-xs font-medium">
+      {(["es", "en"] as const).map((language) => (
+        <Link
+          key={language}
+          href={`/${language}`}
+          lang={language}
+          hrefLang={language}
+          aria-current={locale === language ? "page" : undefined}
+          className={`rounded-sm px-2 py-2 focus-visible:outline-offset-2 ${locale === language ? "font-bold underline underline-offset-4" : "text-muted"}`}
+        >
+          {language.toUpperCase()}
+        </Link>
+      ))}
+    </div>
+  );
 
-export default function Header() {
   return (
     <header className="relative z-20 border-b border-border bg-background">
       <Container className="flex min-h-20 items-center justify-between gap-5">
         <Link
-          href="/"
+          href={`/${locale}`}
           aria-label={messages.header.homeLabel}
           className="inline-flex shrink-0 items-center gap-2.5 rounded-sm font-bold tracking-tight focus-visible:outline-offset-4"
         >
@@ -42,13 +61,16 @@ export default function Header() {
           </ul>
         </nav>
 
-        <a
-          href={DISCORD_URL}
-          className="hidden min-h-11 shrink-0 items-center gap-1 rounded-md border border-brand-dark px-4 text-[0.82rem] font-bold transition-colors hover:bg-brand-dark hover:text-brand-white xl:inline-flex"
-        >
-          {messages.header.discord}
-          <ArrowUpRight aria-hidden="true" size={16} strokeWidth={1.8} />
-        </a>
+        <div className="hidden shrink-0 items-center gap-3 xl:flex">
+          {localeLinks}
+          <a
+            href={DISCORD_URL}
+            className="inline-flex min-h-11 items-center gap-1 rounded-md border border-brand-dark px-4 text-[0.82rem] font-bold transition-colors hover:bg-brand-dark hover:text-brand-white"
+          >
+            {messages.header.discord}
+            <ArrowUpRight aria-hidden="true" size={16} strokeWidth={1.8} />
+          </a>
+        </div>
 
         <details className="group relative xl:hidden">
           <summary className="flex min-h-11 cursor-pointer list-none items-center gap-2 rounded-md border border-border px-3 text-sm font-medium marker:hidden [&::-webkit-details-marker]:hidden">
@@ -68,6 +90,7 @@ export default function Header() {
                 </li>
               ))}
             </ul>
+            <div className="mt-2 border-t border-border pt-2">{localeLinks}</div>
             <a
               href={DISCORD_URL}
               className="mt-3 flex min-h-11 items-center justify-between rounded-md bg-brand-dark px-3 text-sm font-bold text-brand-white"

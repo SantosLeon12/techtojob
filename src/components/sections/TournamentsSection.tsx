@@ -2,10 +2,11 @@ import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import Container from "@/components/ui/Container";
 import { DISCORD_URL } from "@/lib/constants";
-import messages from "@/messages/es.json";
+import { getSiteMessages } from "@/i18n/messages";
 import styles from "./TournamentsSection.module.css";
 
-export default function TournamentsSection() {
+export default async function TournamentsSection() {
+  const messages = await getSiteMessages();
   const { tournaments } = messages;
 
   return (

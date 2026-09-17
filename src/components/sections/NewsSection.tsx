@@ -1,9 +1,10 @@
 import { ArrowUpRight } from "lucide-react";
 import Container from "@/components/ui/Container";
-import messages from "@/messages/es.json";
+import { getSiteMessages } from "@/i18n/messages";
 import styles from "./NewsSection.module.css";
 
-export default function NewsSection() {
+export default async function NewsSection() {
+  const messages = await getSiteMessages();
   const { news } = messages;
 
   return (

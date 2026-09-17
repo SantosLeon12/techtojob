@@ -9,18 +9,22 @@ import NewsSection from "@/components/sections/NewsSection";
 import NewsletterSection from "@/components/sections/NewsletterSection";
 import FinalCtaSection from "@/components/sections/FinalCtaSection";
 import Footer from "@/components/layout/Footer";
-import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
+import { getSiteMessages } from "@/i18n/messages";
+import { setRequestLocale } from "next-intl/server";
+import { SITE_NAME, SITE_URL } from "@/lib/site";
 
-const organization = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: SITE_NAME,
-  url: SITE_URL,
-  logo: new URL("/brand/symbol-positive.svg", SITE_URL).toString(),
-  description: SITE_DESCRIPTION,
-};
-
-export default function Home() {
+export default async function Home({ params }: PageProps<"/[locale]">) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const messages = await getSiteMessages();
+  const organization = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: SITE_NAME,
+    url: SITE_URL,
+    logo: new URL("/brand/symbol-positive.svg", SITE_URL).toString(),
+    description: messages.metadata.description,
+  };
   return (
     <>
       <script

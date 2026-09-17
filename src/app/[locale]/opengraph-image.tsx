@@ -1,12 +1,21 @@
 import { ImageResponse } from "next/og";
-import messages from "@/messages/es.json";
+import { notFound } from "next/navigation";
+import { hasLocale } from "next-intl";
+import { routing } from "@/i18n/routing";
 import { SITE_NAME } from "@/lib/site";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = `${SITE_NAME}: ${messages.foundation.description}`;
+export const alt = SITE_NAME;
 
-export default function OpenGraphImage() {
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+export default async function OpenGraphImage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) notFound();
+  const messages = (await import(`../../messages/${locale}.json`)).default;
   return new ImageResponse(
     <div
       style={{
