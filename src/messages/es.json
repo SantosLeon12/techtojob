@@ -83,5 +83,35 @@
         "description": "Cuando surge una necesidad, las conexiones ya existen y la conversación puede empezar de forma natural."
       }
     ]
+  },
+  "talentCompanies": {
+    "eyebrow": "Talento y empresas",
+    "title": "Dos formas de entrar. Un mismo lugar para encontrarse.",
+    "description": "TechToJob permite que desarrolladores y empresas se descubran dentro de la comunidad antes de que todo empiece con una candidatura.",
+    "connection": "TechToJob",
+    "technologiesLabel": "Tecnologías",
+    "talent": {
+      "label": "Talento",
+      "title": "Haz visible lo que sabes hacer",
+      "description": "Publica tu perfil con tu stack, nivel y disponibilidad para que otras personas y empresas sepan en qué trabajas y qué estás buscando.",
+      "profileLabel": "Perfil de talento",
+      "role": "Frontend Developer",
+      "level": "Mid Level",
+      "technologies": ["React", "TypeScript", "Next.js"],
+      "availabilityLabel": "Disponibilidad",
+      "availability": "Disponible",
+      "cta": "Ofrécete como talento"
+    },
+    "companies": {
+      "label": "Empresa",
+      "title": "Encuentra perfiles antes de publicar una oferta",
+      "description": "Comparte qué perfil necesitas, las tecnologías del proyecto y la modalidad para conectar con profesionales que ya forman parte de la comunidad.",
+      "profileLabel": "Perfil buscado",
+      "role": "Backend Developer",
+      "technologies": ["Python", "FastAPI", "PostgreSQL"],
+      "modalityLabel": "Modalidad",
+      "modality": "Remoto",
+      "cta": "Publicar como empresa"
+    }
   }
 }
