@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Sora } from "next/font/google";
-import messages from "@/messages/es.json";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const sora = Sora({
@@ -10,16 +10,29 @@ const sora = Sora({
   display: "swap",
 });
 
-// Development URL; replace with the production origin before deployment.
-const DEVELOPMENT_SITE_URL = "http://localhost:3000";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(DEVELOPMENT_SITE_URL),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: messages.metadata.title,
+    default: SITE_TITLE,
     template: "%s | TechToJob",
   },
-  description: messages.metadata.description,
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
+  alternates: { canonical: SITE_URL },
+  openGraph: {
+    type: "website",
+    locale: "es_ES",
+    siteName: SITE_NAME,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    url: SITE_URL,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [new URL("/opengraph-image", SITE_URL).toString()],
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

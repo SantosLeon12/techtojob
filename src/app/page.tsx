@@ -9,10 +9,26 @@ import NewsSection from "@/components/sections/NewsSection";
 import NewsletterSection from "@/components/sections/NewsletterSection";
 import FinalCtaSection from "@/components/sections/FinalCtaSection";
 import Footer from "@/components/layout/Footer";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
+
+const organization = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: SITE_NAME,
+  url: SITE_URL,
+  logo: new URL("/brand/symbol-positive.svg", SITE_URL).toString(),
+  description: SITE_DESCRIPTION,
+};
 
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(organization).replace(/</g, "\\u003c"),
+        }}
+      />
       <Header />
       <main>
         <HeroSection />
