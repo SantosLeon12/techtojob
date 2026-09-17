@@ -7,7 +7,7 @@ import HeroNetwork from "./hero/HeroNetwork";
 export default function HeroSection() {
   return (
     <section aria-labelledby="hero-title" className="overflow-hidden bg-background">
-      <Container className="grid items-center gap-7 pb-16 pt-16 sm:gap-10 sm:pt-20 lg:grid-cols-[minmax(0,1.03fr)_minmax(0,0.97fr)] lg:gap-2 lg:py-24 xl:py-28">
+      <Container className="grid items-center gap-7 pb-12 pt-16 sm:gap-10 sm:pb-14 sm:pt-20 lg:grid-cols-[minmax(0,1.03fr)_minmax(0,0.97fr)] lg:gap-2 lg:pb-16 lg:pt-24 xl:pt-28">
         <div className="relative z-10 max-w-[44rem]">
           <p className="mb-7 inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-[0.19em] text-brand-dark">
             <span aria-hidden="true" className="h-2 w-2 rounded-full bg-brand-primary" />

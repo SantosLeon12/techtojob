@@ -1,7 +1,7 @@
 .journey {
   display: grid;
   gap: 0;
-  margin-top: 64px;
+  margin-top: 48px;
   padding: 0 0 0 20px;
   border-left: 2px solid var(--brand-primary);
   list-style: none;
@@ -10,7 +10,7 @@
 .step {
   position: relative;
   min-width: 0;
-  padding: 0 0 48px 22px;
+  padding: 0 0 36px 22px;
 }
 
 .step:last-child { padding-bottom: 0; }
@@ -58,7 +58,7 @@
   .journey {
     grid-template-columns: 1fr 1.1fr 1.35fr 1fr 1.35fr;
     gap: 18px;
-    margin-top: 96px;
+    margin-top: 72px;
     padding: 0;
     border-top: 2px solid var(--brand-primary);
     border-left: 0;

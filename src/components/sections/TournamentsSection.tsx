@@ -12,7 +12,7 @@ export default function TournamentsSection() {
     <section
       id="torneos"
       aria-labelledby="tournaments-title"
-      className="bg-brand-dark py-20 text-brand-white sm:py-24 lg:py-28"
+      className="bg-brand-dark py-16 text-brand-white sm:py-20 lg:py-24"
     >
       <Container>
         <div className={styles.layout}>

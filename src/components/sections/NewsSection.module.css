@@ -1,5 +1,5 @@
 .section {
-  padding: 80px 0 96px;
+  padding: 64px 0 80px;
   background: var(--brand-white);
   scroll-margin-top: 24px;
 }
@@ -43,7 +43,7 @@
   font-size: 0.76rem;
   line-height: 1.6;
 }
-.stories { display: grid; margin-top: 54px; }
+.stories { display: grid; margin-top: 42px; }
 .story {
   display: flex;
   min-width: 0;
@@ -99,16 +99,16 @@
 .link:focus-visible { outline: 2px solid var(--brand-dark); outline-offset: 3px; }
 
 @media (min-width: 768px) {
-  .section { padding: 96px 0 112px; }
+  .section { padding: 80px 0 96px; }
   .stories {
     grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
     column-gap: 48px;
-    margin-top: 70px;
+    margin-top: 56px;
   }
   .story { padding: 30px 0; }
   .story:first-child {
     grid-row: 1 / span 2;
-    min-height: 560px;
+    min-height: 480px;
     padding-top: 34px;
   }
   .story:nth-child(2) { border-top: 2px solid var(--brand-primary); }
@@ -120,7 +120,7 @@
 }
 
 @media (min-width: 1024px) {
-  .section { padding: 112px 0 128px; }
-  .stories { column-gap: 88px; margin-top: 82px; }
-  .story:first-child { min-height: 570px; }
+  .section { padding: 96px 0 104px; }
+  .stories { column-gap: 88px; margin-top: 64px; }
+  .story:first-child { min-height: 500px; }
 }

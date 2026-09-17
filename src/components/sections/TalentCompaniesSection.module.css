@@ -1,7 +1,7 @@
 .ecosystem {
   display: grid;
-  gap: 28px;
-  margin-top: 64px;
+  gap: 24px;
+  margin-top: 48px;
 }
 
 .audience {
@@ -52,11 +52,11 @@
 }
 
 .profile {
-  margin-top: 30px;
+  margin-top: 26px;
   padding: 22px;
   border: 1px solid var(--border);
   border-top: 3px solid var(--brand-primary);
-  border-radius: 9px;
+  border-radius: 8px;
   background: var(--surface);
 }
 
@@ -208,7 +208,7 @@
     grid-template-columns: minmax(0, 1fr) 115px minmax(0, 1fr);
     gap: 18px;
     align-items: start;
-    margin-top: 82px;
+    margin-top: 64px;
     isolation: isolate;
   }
 

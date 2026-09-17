@@ -9,7 +9,7 @@ export default function HowItWorksSection() {
     <section
       id="como-funciona"
       aria-labelledby="how-it-works-title"
-      className="border-t border-border bg-surface py-20 sm:py-24 lg:py-28"
+      className="border-t border-border bg-surface pb-16 pt-16 sm:pb-20 sm:pt-20 lg:pb-24 lg:pt-20"
     >
       <Container>
         <div className="max-w-[51rem]">

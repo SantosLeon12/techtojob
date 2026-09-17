@@ -1,5 +1,5 @@
 .section {
-  padding: 88px 0 96px;
+  padding: 72px 0 80px;
   background: var(--brand-dark);
   color: var(--brand-white);
 }
@@ -18,7 +18,7 @@
 .title {
   max-width: 19ch;
   margin-top: 22px;
-  font-size: clamp(2.1rem, 5vw, 4.7rem);
+  font-size: clamp(2.1rem, 5vw, 4.2rem);
   font-weight: 700;
   line-height: 1.14;
   letter-spacing: -0.058em;
@@ -53,5 +53,5 @@
 .cta svg { flex: none; }
 
 @media (min-width: 1024px) {
-  .section { padding: 126px 0 136px; }
+  .section { padding: 104px 0 112px; }
 }
