@@ -204,5 +204,34 @@
         "profileUrl": null
       }
     ]
+  },
+  "news": {
+    "eyebrow": "Noticias y novedades",
+    "title": "Lo que está pasando dentro de TechToJob",
+    "description": "Torneos, novedades de la comunidad y recursos para seguir construyendo una red tecnológica más abierta y participativa.",
+    "disclosure": "Contenidos de muestra para la propuesta del torneo.",
+    "entries": [
+      {
+        "category": "Torneos",
+        "title": "Nuevos retos para mostrar cómo construyes",
+        "description": "Los torneos plantean problemas abiertos donde diseño, desarrollo y decisiones técnicas forman parte del resultado.",
+        "linkLabel": "Conocer los torneos de TechToJob",
+        "href": "#torneos"
+      },
+      {
+        "category": "Comunidad",
+        "title": "Más espacios para compartir conocimiento técnico",
+        "description": "La comunidad crece alrededor de conversaciones por especialidad, proyectos compartidos y aprendizaje entre profesionales.",
+        "linkLabel": "Descubrir la comunidad",
+        "href": "#comunidad"
+      },
+      {
+        "category": "Talento",
+        "title": "Una forma distinta de hacer visible tu perfil",
+        "description": "Compartir lo que haces, cómo trabajas y qué tecnologías utilizas aporta contexto mucho antes de una candidatura.",
+        "linkLabel": "Ver cómo participar como talento",
+        "href": "#talento"
+      }
+    ]
   }
 }

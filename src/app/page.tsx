@@ -5,6 +5,7 @@ import TalentCompaniesSection from "@/components/sections/TalentCompaniesSection
 import TournamentsSection from "@/components/sections/TournamentsSection";
 import NetworkingSection from "@/components/sections/NetworkingSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
+import NewsSection from "@/components/sections/NewsSection";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         <TournamentsSection />
         <NetworkingSection />
         <TestimonialsSection />
+        <NewsSection />
       </main>
     </>
   );
