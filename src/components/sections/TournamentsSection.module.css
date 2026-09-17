@@ -1,0 +1,165 @@
+.layout { display: grid; }
+
+.eyebrow,
+.featureLabel,
+.detailsLabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.eyebrow { display: flex; align-items: center; gap: 10px; color: var(--brand-primary); }
+.eyebrowDot { width: 8px; height: 8px; flex: none; border-radius: 2px; background: var(--brand-primary); }
+
+.title {
+  max-width: 18ch;
+  margin-top: 25px;
+  font-size: clamp(2.15rem, 4vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.13;
+  letter-spacing: -0.058em;
+}
+
+.description {
+  max-width: 58ch;
+  margin-top: 26px;
+  color: var(--brand-white);
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.feature {
+  display: flex;
+  min-width: 0;
+  min-height: 400px;
+  flex-direction: column;
+  margin-top: 45px;
+  padding: 24px;
+  border: 1px solid var(--brand-primary);
+  border-radius: 10px;
+  background: rgb(255 255 255 / 0.035);
+}
+
+.featureTop { display: flex; align-items: start; justify-content: space-between; gap: 16px; }
+.featureLabel { color: var(--brand-primary); line-height: 1.6; }
+.featureSymbol {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  flex: none;
+  place-items: center;
+  border-radius: 7px;
+  background: var(--brand-primary);
+}
+
+.featureTitle {
+  max-width: 9ch;
+  margin-top: 54px;
+  font-size: clamp(2.65rem, 5vw, 4.7rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.07em;
+}
+
+.featureRail { display: none; }
+
+.featureDetails { margin-top: auto; padding-top: 56px; }
+.detailsLabel { color: var(--brand-primary); }
+.areas { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; padding: 0; list-style: none; }
+.areas li {
+  padding: 7px 10px;
+  border: 1px solid rgb(255 255 255 / 0.45);
+  border-radius: 4px;
+  color: var(--brand-white);
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+.stages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  margin-top: 30px;
+  padding: 20px 0 0;
+  border-top: 1px solid rgb(255 255 255 / 0.32);
+  list-style: none;
+}
+
+.stages li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--brand-white);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.stages li::before { width: 5px; height: 5px; border-radius: 1px; background: var(--brand-primary); content: ""; }
+
+.process { margin-top: 50px; padding: 0; list-style: none; }
+.processStep {
+  display: grid;
+  grid-template-columns: 45px minmax(0, 1fr);
+  gap: 14px;
+  padding: 19px 0 22px;
+  border-top: 1px solid rgb(255 255 255 / 0.35);
+}
+.processStep:last-child { border-bottom: 1px solid rgb(255 255 255 / 0.35); }
+.stepNumber { color: var(--brand-primary); font-size: 1.25rem; font-weight: 700; letter-spacing: -0.04em; }
+.stepTitle { font-size: 1.08rem; font-weight: 700; line-height: 1.4; }
+.stepDescription { max-width: 45ch; margin-top: 7px; color: var(--brand-white); font-size: 0.85rem; line-height: 1.7; }
+
+.cta {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: space-between;
+  justify-self: start;
+  gap: 18px;
+  margin-top: 36px;
+  padding: 12px 17px;
+  border-radius: 6px;
+  background: var(--brand-primary);
+  color: var(--brand-dark);
+  font-size: 0.84rem;
+  font-weight: 700;
+  transition: background-color 150ms ease;
+}
+.cta:hover { background: var(--brand-white); }
+.cta:focus-visible { outline: 2px solid var(--brand-primary); outline-offset: 4px; }
+
+@media (min-width: 1024px) {
+  .layout {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    grid-template-areas: "intro feature" "process feature" "cta feature";
+    column-gap: 90px;
+    align-items: start;
+  }
+  .intro { grid-area: intro; }
+  .feature { grid-area: feature; min-height: 650px; height: 100%; margin-top: 0; padding: 32px; }
+  .process { grid-area: process; margin-top: 54px; }
+  .cta { grid-area: cta; margin-top: 32px; }
+  .featureTitle { margin-top: 75px; }
+  .featureRail {
+    position: relative;
+    display: block;
+    min-height: 80px;
+    flex: 1;
+    margin: 38px 0 0 5px;
+    border-left: 1px solid var(--brand-primary);
+  }
+  .featureRail::before,
+  .featureRail::after,
+  .featureRail span {
+    position: absolute;
+    left: -4px;
+    width: 7px;
+    height: 7px;
+    border: 1px solid var(--brand-primary);
+    background: var(--brand-dark);
+  }
+  .featureRail::before { top: 0; content: ""; }
+  .featureRail::after { bottom: 0; content: ""; }
+  .featureRail span { top: 50%; }
+  .featureDetails { padding-top: 24px; }
+}

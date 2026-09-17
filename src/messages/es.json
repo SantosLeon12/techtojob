@@ -113,5 +113,35 @@
       "modality": "Remoto",
       "cta": "Publicar como empresa"
     }
+  },
+  "tournaments": {
+    "eyebrow": "Torneos abiertos",
+    "title": "Construye algo. Compártelo. Deja que tu trabajo hable por ti.",
+    "description": "Los torneos de TechToJob son retos abiertos donde puedes poner a prueba tus habilidades, crear proyectos reales y hacer visible cómo trabajas frente a otros profesionales y empresas.",
+    "feature": {
+      "label": "Torneo abierto",
+      "title": "Landing Challenge",
+      "areasLabel": "Áreas del reto",
+      "areas": ["Diseño", "Desarrollo", "Responsive", "SEO", "Accesibilidad"],
+      "stages": ["Construye", "Entrega", "Comparte"]
+    },
+    "steps": [
+      {
+        "number": "01",
+        "title": "Construye",
+        "description": "Resuelve un reto con tus propias decisiones técnicas y creativas."
+      },
+      {
+        "number": "02",
+        "title": "Comparte",
+        "description": "Presenta tu trabajo a la comunidad y explica cómo llegaste al resultado."
+      },
+      {
+        "number": "03",
+        "title": "Destaca",
+        "description": "Haz visible tu forma de trabajar más allá de un currículum."
+      }
+    ],
+    "cta": "Participar en los torneos"
   }
 }
