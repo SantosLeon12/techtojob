@@ -51,5 +51,37 @@
       },
       "community": "Comunidad"
     }
+  },
+  "howItWorks": {
+    "eyebrow": "Cómo funciona",
+    "title": "Las oportunidades empiezan mucho antes de una oferta",
+    "description": "En TechToJob no llegas únicamente a buscar empleo. Te haces visible participando, compartiendo lo que sabes hacer y conectando con personas y empresas del sector.",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Entra en la comunidad",
+        "description": "Descubre los canales, las áreas técnicas y a las personas que forman parte de TechToJob."
+      },
+      {
+        "number": "02",
+        "title": "Haz visible tu perfil",
+        "description": "Comparte tu stack, nivel, disponibilidad y aquello en lo que estás trabajando."
+      },
+      {
+        "number": "03",
+        "title": "Participa",
+        "description": "Conversa, aporta, participa en torneos y demuestra lo que sabes hacer más allá de un currículum."
+      },
+      {
+        "number": "04",
+        "title": "Conecta",
+        "description": "Profesionales y empresas pueden descubrir perfiles, proyectos e intereses dentro de la comunidad."
+      },
+      {
+        "number": "05",
+        "title": "Encuentra oportunidades",
+        "description": "Cuando surge una necesidad, las conexiones ya existen y la conversación puede empezar de forma natural."
+      }
+    ]
   }
 }
