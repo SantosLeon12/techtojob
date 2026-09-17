@@ -6,6 +6,9 @@ import TournamentsSection from "@/components/sections/TournamentsSection";
 import NetworkingSection from "@/components/sections/NetworkingSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import NewsSection from "@/components/sections/NewsSection";
+import NewsletterSection from "@/components/sections/NewsletterSection";
+import FinalCtaSection from "@/components/sections/FinalCtaSection";
+import Footer from "@/components/layout/Footer";
 
 export default function Home() {
   return (
@@ -19,7 +22,10 @@ export default function Home() {
         <NetworkingSection />
         <TestimonialsSection />
         <NewsSection />
+        <NewsletterSection />
+        <FinalCtaSection />
       </main>
+      <Footer />
     </>
   );
 }

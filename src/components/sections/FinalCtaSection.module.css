@@ -1,0 +1,57 @@
+.section {
+  padding: 88px 0 96px;
+  background: var(--brand-dark);
+  color: var(--brand-white);
+}
+.content { max-width: 60rem; }
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--brand-primary);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+}
+.eyebrowDot { width: 7px; height: 7px; border-radius: 2px; background: var(--brand-primary); }
+.title {
+  max-width: 19ch;
+  margin-top: 22px;
+  font-size: clamp(2.1rem, 5vw, 4.7rem);
+  font-weight: 700;
+  line-height: 1.14;
+  letter-spacing: -0.058em;
+}
+.description {
+  max-width: 42rem;
+  margin-top: 25px;
+  color: var(--brand-white);
+  font-size: 1rem;
+  line-height: 1.9;
+}
+.cta {
+  display: inline-flex;
+  min-height: 52px;
+  max-width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 34px;
+  padding: 13px 20px;
+  border-radius: 6px;
+  background: var(--brand-primary);
+  color: var(--brand-dark);
+  font-size: 0.86rem;
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: center;
+  transition: background-color 150ms ease;
+}
+.cta:hover { background: var(--brand-white); }
+.cta:focus-visible { outline: 2px solid var(--brand-white); outline-offset: 4px; }
+.cta svg { flex: none; }
+
+@media (min-width: 1024px) {
+  .section { padding: 126px 0 136px; }
+}

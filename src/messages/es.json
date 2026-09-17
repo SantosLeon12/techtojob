@@ -233,5 +233,42 @@
         "href": "#talento"
       }
     ]
+  },
+  "newsletter": {
+    "eyebrow": "Mantente al día",
+    "title": "Lo importante de TechToJob, directo a tu correo",
+    "description": "Recibe novedades sobre torneos, comunidad, oportunidades y nuevos recursos sin tener que perseguir cada actualización.",
+    "emailLabel": "Correo electrónico",
+    "emailPlaceholder": "tu@correo.com",
+    "submit": "Suscribirme",
+    "reassurance": "Solo novedades relevantes. Sin ruido.",
+    "unavailable": "La suscripción estará disponible próximamente."
+  },
+  "finalCta": {
+    "eyebrow": "El siguiente paso",
+    "title": "Tu próxima oportunidad puede empezar con una conversación",
+    "description": "Entra en TechToJob, comparte lo que estás construyendo y conoce a quienes ya forman parte de la comunidad.",
+    "cta": "Entrar a TechToJob en Discord"
+  },
+  "footer": {
+    "brandName": "TechToJob",
+    "brandHomeLabel": "TechToJob, volver al inicio",
+    "description": "Comunidad de desarrolladores y empresas tech en español.",
+    "navigationLabel": "Navegación del pie de página",
+    "communityHeading": "Comunidad",
+    "contentHeading": "Contenido",
+    "socialHeading": "Redes",
+    "legalHeading": "Legal",
+    "howItWorks": "Cómo funciona",
+    "talent": "Talento",
+    "companies": "Empresas",
+    "tournaments": "Torneos",
+    "networking": "Networking",
+    "news": "Noticias",
+    "discord": "Discord",
+    "linkedin": "LinkedIn",
+    "privacy": "Privacidad",
+    "legalNotice": "Aviso legal",
+    "copyright": "© TechToJob"
   }
 }
