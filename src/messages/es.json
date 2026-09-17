@@ -6,5 +6,50 @@
   "foundation": {
     "title": "TechToJob",
     "description": "Comunidad de desarrolladores y empresas tech en español."
+  },
+  "header": {
+    "brandName": "TechToJob",
+    "homeLabel": "TechToJob, ir al inicio",
+    "navigationLabel": "Navegación principal",
+    "mobileNavigationLabel": "Navegación móvil",
+    "menu": "Menú",
+    "discord": "Entrar al Discord",
+    "navigation": {
+      "howItWorks": "Cómo funciona",
+      "talent": "Talento",
+      "companies": "Empresas",
+      "tournaments": "Torneos",
+      "community": "Comunidad",
+      "news": "Noticias"
+    }
+  },
+  "hero": {
+    "eyebrow": "Comunidad de desarrolladores y empresas tech en español",
+    "title": "El lugar donde el talento tech se hace visible",
+    "description": "TechToJob no es otro portal de empleo. Es una comunidad en español donde desarrolladores y empresas comparten lo que hacen, crean conexiones, participan en torneos y descubren oportunidades a partir de su participación.",
+    "cta": "Entrar a TechToJob en Discord",
+    "microcopy": "Talento, empresas y comunidad en un mismo espacio.",
+    "network": {
+      "accessibleLabel": "TechToJob conecta talento, empresas, torneos y comunidad",
+      "center": "TechToJob",
+      "talent": {
+        "label": "Talento",
+        "title": "Frontend Developer",
+        "skills": "React · TypeScript",
+        "status": "Disponible"
+      },
+      "company": {
+        "label": "Empresa",
+        "title": "Buscando Backend Developer",
+        "skills": "Python · FastAPI",
+        "status": "Remoto"
+      },
+      "tournament": {
+        "label": "Torneos",
+        "title": "Retos abiertos",
+        "description": "Construye · Comparte · Destaca"
+      },
+      "community": "Comunidad"
+    }
   }
 }
