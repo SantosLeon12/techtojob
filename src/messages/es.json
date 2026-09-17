@@ -143,5 +143,23 @@
       }
     ],
     "cta": "Participar en los torneos"
+  },
+  "networking": {
+    "eyebrow": "Networking",
+    "title": "Encuentra a la gente que habla tu mismo idioma técnico",
+    "description": "TechToJob reúne profesionales de distintas áreas para compartir experiencia, resolver dudas, descubrir proyectos y crear conexiones dentro del sector tecnológico.",
+    "community": "Comunidad tech",
+    "areas": [
+      "Frontend",
+      "Backend",
+      "Mobile",
+      "UX / UI",
+      "DevOps",
+      "Data",
+      "Inteligencia Artificial",
+      "QA"
+    ],
+    "statement": "No todo empieza con una vacante. A veces empieza con una conversación.",
+    "cta": "Conocer la comunidad"
   }
 }
