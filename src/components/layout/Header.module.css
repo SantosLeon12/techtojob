@@ -1,0 +1,98 @@
+.navigationLink {
+  position: relative;
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  transition: color 180ms ease;
+}
+.navigationLink::after {
+  position: absolute;
+  right: 0;
+  bottom: 8px;
+  left: 0;
+  height: 2px;
+  background: var(--brand-primary);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms ease;
+}
+.navigationLink:hover::after,
+.navigationLink:focus-visible::after { transform: scaleX(1); }
+.navigationLink:active { color: var(--muted); }
+.languageSwitch {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: var(--surface);
+  font-size: 0.72rem;
+}
+.languageOption {
+  display: inline-flex;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  color: var(--muted);
+  font-weight: 500;
+  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+.languageOption:hover,
+.languageOption:focus-visible { background: var(--brand-white); color: var(--brand-dark); }
+.languageOption:active { background: var(--brand-primary); }
+.languageActive,
+.languageActive:hover { border-color: var(--border); background: var(--brand-white); color: var(--brand-dark); font-weight: 700; }
+.discordLink,
+.mobileDiscord,
+.menuTrigger,
+.mobileLink { transition: transform 180ms ease, background-color 180ms ease, color 180ms ease, border-color 180ms ease; }
+.discordIcon { position: relative; display: block; width: 20px; height: 15px; flex: none; transition: transform 180ms ease; }
+.discordIconBlack,
+.discordIconWhite { position: absolute; inset: 0; transition: opacity 180ms ease; }
+.discordIconWhite { opacity: 0; }
+.discordLink:hover,
+.discordLink:focus-visible { background: var(--brand-dark); color: var(--brand-white); transform: translateY(-1px); }
+.discordLink:hover .discordIconBlack,
+.discordLink:focus-visible .discordIconBlack { opacity: 0; }
+.discordLink:hover .discordIconWhite,
+.discordLink:focus-visible .discordIconWhite { opacity: 1; }
+.discordLink:hover .discordIcon,
+.discordLink:focus-visible .discordIcon,
+.mobileDiscord:hover .mobileDiscordIcon,
+.mobileDiscord:focus-visible .mobileDiscordIcon { transform: scale(1.05); }
+.discordLink svg,
+.mobileDiscord svg { transition: transform 180ms ease; }
+.discordLink:hover svg,
+.discordLink:focus-visible svg,
+.mobileDiscord:hover svg,
+.mobileDiscord:focus-visible svg { transform: translate(2px, -2px); }
+.mobileDiscordIcon { flex: none; transition: transform 180ms ease; }
+.discordLink:active,
+.mobileDiscord:active { transform: scale(0.985); }
+.menuTrigger:hover,
+.menuTrigger:focus-visible { border-color: var(--brand-dark); background: var(--surface); }
+.menuTrigger:active { background: var(--brand-primary); }
+.mobileLink:hover,
+.mobileLink:focus-visible { background: var(--surface); }
+.mobileLink:active { background: var(--brand-primary); }
+.mobileDiscord:hover,
+.mobileDiscord:focus-visible { background: var(--muted); transform: translateY(-1px); }
+@media (prefers-reduced-motion: reduce) {
+  .navigationLink,
+  .navigationLink::after,
+  .languageOption,
+  .discordLink,
+  .discordIcon,
+  .discordIconBlack,
+  .discordIconWhite,
+  .discordLink svg,
+  .mobileDiscord,
+  .mobileDiscordIcon,
+  .mobileDiscord svg,
+  .menuTrigger,
+  .mobileLink { transition-duration: 0.01ms; }
+}

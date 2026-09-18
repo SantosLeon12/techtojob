@@ -6,7 +6,7 @@
 }
 .top { display: grid; gap: 38px; }
 .brand { max-width: 19rem; }
-.brandLink { display: inline-flex; align-items: center; gap: 11px; border-radius: 3px; color: var(--brand-primary); font-size: 1.22rem; font-weight: 700; letter-spacing: -0.04em; }
+.brandLink { display: inline-flex; min-height: 44px; align-items: center; gap: 11px; border-radius: 3px; color: var(--brand-primary); font-size: 1.22rem; font-weight: 700; letter-spacing: -0.04em; }
 .brandLink img { display: block; width: 33px; height: 33px; }
 .brand p { margin-top: 19px; font-size: 0.85rem; line-height: 1.8; }
 .navigation { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 24px; }
@@ -18,9 +18,9 @@
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
-.group ul { display: grid; gap: 12px; margin-top: 16px; padding: 0; list-style: none; }
+.group ul { display: grid; gap: 4px; margin-top: 12px; padding: 0; list-style: none; }
 .group li { font-size: 0.8rem; line-height: 1.55; }
-.group a { border-radius: 2px; color: var(--brand-white); text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 4px; }
+.group a { display: inline-flex; min-height: 44px; align-items: center; border-radius: 2px; color: var(--brand-white); text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 4px; }
 .group a:hover { text-decoration-color: var(--brand-primary); }
 .brandLink:focus-visible, .group a:focus-visible { outline: 2px solid var(--brand-primary); outline-offset: 4px; }
 .pending { color: var(--brand-white); opacity: 0.75; }

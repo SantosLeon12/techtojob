@@ -162,6 +162,7 @@
     "description": "Join TechToJob, share what you're building, and meet the people already in the community.",
     "cta": "Join TechToJob on Discord"
   },
+  "backToTop": { "label": "Back to top" },
   "footer": {
     "brandName": "TechToJob",
     "brandHomeLabel": "TechToJob, back to home",

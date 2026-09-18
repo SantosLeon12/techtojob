@@ -1,81 +1,80 @@
+.layout { display: grid; gap: 40px; }
+.intro { min-width: 0; }
+
 .journey {
+  position: relative;
   display: grid;
-  gap: 0;
-  margin-top: 48px;
-  padding: 0 0 0 20px;
-  border-left: 2px solid var(--brand-primary);
+  grid-template-rows: repeat(5, minmax(0, 1fr));
+  min-width: 0;
+  margin: 0;
+  padding: 0;
   list-style: none;
 }
+.journey::before,
+.journey::after {
+  position: absolute;
+  top: 10%;
+  right: 6px;
+  bottom: 10%;
+  width: 2px;
+  content: "";
+  pointer-events: none;
+}
+.journey::before { background: var(--border); }
+.journey::after { background: var(--brand-primary); opacity: 0.65; transform-origin: top; }
 
 .step {
   position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 58px;
+  align-items: center;
+  gap: 12px;
   min-width: 0;
-  padding: 0 0 36px 22px;
+  min-height: 142px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
 }
+.step:last-child { border-bottom: 0; }
+.stepContent { min-width: 0; }
+.rail { position: relative; z-index: 1; display: flex; align-items: center; justify-content: flex-end; gap: 8px; white-space: nowrap; }
+.number { color: var(--brand-dark); font-size: 1.65rem; font-weight: 700; line-height: 1; letter-spacing: -0.075em; }
+.node { width: 14px; height: 14px; flex: none; border: 2px solid var(--brand-primary); border-radius: 50%; background: var(--surface); }
+.title { color: var(--brand-dark); font-size: 1.15rem; font-weight: 700; line-height: 1.4; letter-spacing: -0.035em; }
+.description { max-width: 48ch; margin-top: 8px; color: var(--muted); font-size: 0.875rem; line-height: 1.75; }
 
-.step:last-child { padding-bottom: 0; }
-
-.step::before {
-  position: absolute;
-  top: 12px;
-  left: -26px;
-  width: 10px;
-  height: 10px;
-  border: 2px solid var(--brand-dark);
-  border-radius: 2px;
-  background: var(--brand-primary);
-  content: "";
+@media (min-width: 768px) {
+  .layout { gap: 56px; }
+  .step { grid-template-columns: minmax(0, 1fr) 64px; gap: 20px; min-height: 150px; }
 }
-
-.number {
-  display: block;
-  color: var(--brand-dark);
-  font-size: 2.75rem;
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: -0.075em;
-}
-
-.title {
-  max-width: 17ch;
-  margin-top: 19px;
-  color: var(--brand-dark);
-  font-size: 1.15rem;
-  font-weight: 700;
-  line-height: 1.4;
-  letter-spacing: -0.035em;
-}
-
-.description {
-  max-width: 31ch;
-  margin-top: 10px;
-  color: var(--muted);
-  font-size: 0.875rem;
-  line-height: 1.75;
-}
-
 @media (min-width: 1024px) {
-  .journey {
-    grid-template-columns: 1fr 1.1fr 1.35fr 1fr 1.35fr;
-    gap: 18px;
-    margin-top: 72px;
-    padding: 0;
-    border-top: 2px solid var(--brand-primary);
-    border-left: 0;
-  }
-
-  .step { padding: 31px 0 0; }
-  .step:last-child { padding-bottom: 0; }
-  .step::before { top: -6px; left: 0; }
-  .step:nth-child(2),
-  .step:nth-child(4) { padding-top: 66px; }
-  .step:nth-child(3) .number,
-  .step:nth-child(5) .number { font-size: 3.5rem; }
-  .title { margin-top: 25px; }
-}
-
-@media (min-width: 1024px) {
-  .journey { gap: 25px; }
+  .layout { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 64px; align-items: start; }
+  .intro { padding-top: 26px; }
+  .step { min-height: 150px; }
   .title { font-size: 1.25rem; }
   .description { font-size: 0.9rem; }
+}
+
+@keyframes journey-progress { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes reach-node {
+  from { border-color: var(--border); background-color: var(--surface); }
+  to { border-color: var(--brand-primary); background-color: var(--brand-primary); }
+}
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .journey::after {
+      opacity: 1;
+      animation: journey-progress linear both;
+      animation-timeline: view(block);
+      animation-range: entry 0% exit 100%;
+    }
+    .node {
+      animation: reach-node linear both;
+      animation-timeline: view(block);
+      animation-range: entry 0% cover 55%;
+    }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .journey::after { animation: none; opacity: 1; transform: none; }
+  .node { animation: none; border-color: var(--brand-primary); background: var(--brand-primary); }
 }

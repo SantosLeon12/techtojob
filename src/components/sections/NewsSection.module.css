@@ -96,7 +96,12 @@
   transition: text-decoration-color 150ms ease;
 }
 .link:hover { text-decoration-color: var(--brand-dark); }
+.link svg { transition: transform 180ms ease; }
+.link:hover svg,
+.link:focus-visible svg { transform: translate(2px, -2px); }
+.link:active { text-decoration-color: var(--muted); }
 .link:focus-visible { outline: 2px solid var(--brand-dark); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { .link svg { transition-duration: 0.01ms; } }
 
 @media (min-width: 768px) {
   .section { padding: 80px 0 96px; }

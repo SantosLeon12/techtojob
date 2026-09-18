@@ -12,6 +12,8 @@ import Footer from "@/components/layout/Footer";
 import { getSiteMessages } from "@/i18n/messages";
 import { setRequestLocale } from "next-intl/server";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { LINKEDIN_URL } from "@/lib/constants";
+import BackToTop from "@/components/ui/BackToTop";
 
 export default async function Home({ params }: PageProps<"/[locale]">) {
   const { locale } = await params;
@@ -24,6 +26,7 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
     url: SITE_URL,
     logo: new URL("/brand/symbol-positive.svg", SITE_URL).toString(),
     description: messages.metadata.description,
+    sameAs: [LINKEDIN_URL],
   };
   return (
     <>
@@ -46,6 +49,7 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
         <FinalCtaSection />
       </main>
       <Footer />
+      <BackToTop label={messages.backToTop.label} />
     </>
   );
 }

@@ -21,6 +21,8 @@
   --font-sans: var(--font-sora);
 }
 
+html { scroll-behavior: smooth; }
+
 *,
 *::before,
 *::after {

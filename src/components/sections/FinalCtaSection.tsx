@@ -1,5 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import Container from "@/components/ui/Container";
+import DiscordMark from "@/components/ui/DiscordMark";
+import shimmer from "@/components/ui/DiscordShimmer.module.css";
 import { DISCORD_URL } from "@/lib/constants";
 import { getSiteMessages } from "@/i18n/messages";
 import styles from "./FinalCtaSection.module.css";
@@ -18,7 +20,8 @@ export default async function FinalCtaSection() {
           </p>
           <h2 id="final-cta-title" className={styles.title}>{finalCta.title}</h2>
           <p className={styles.description}>{finalCta.description}</p>
-          <a href={DISCORD_URL} className={styles.cta}>
+          <a href={DISCORD_URL} className={`${styles.cta} ${shimmer.shimmer}`}>
+            <DiscordMark tone="black" className={styles.discordIcon} />
             {finalCta.cta}
             <ArrowUpRight aria-hidden="true" size={19} strokeWidth={1.8} />
           </a>

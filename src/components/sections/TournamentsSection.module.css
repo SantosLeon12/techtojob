@@ -123,10 +123,11 @@
   color: var(--brand-dark);
   font-size: 0.84rem;
   font-weight: 700;
-  transition: background-color 150ms ease;
+  transition: background-color 180ms ease, transform 180ms ease;
 }
 .cta:hover { background: var(--brand-white); }
 .cta:focus-visible { outline: 2px solid var(--brand-primary); outline-offset: 4px; }
+.cta:active { transform: scale(0.985); }
 
 @media (min-width: 1024px) {
   .layout {

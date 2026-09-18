@@ -3,8 +3,11 @@ import Link from "next/link";
 import { getLocale } from "next-intl/server";
 import { ArrowUpRight, Menu } from "lucide-react";
 import Container from "@/components/ui/Container";
+import DiscordMark from "@/components/ui/DiscordMark";
+import shimmer from "@/components/ui/DiscordShimmer.module.css";
 import { DISCORD_URL } from "@/lib/constants";
 import { getSiteMessages } from "@/i18n/messages";
+import styles from "./Header.module.css";
 
 export default async function Header() {
   const messages = await getSiteMessages();
@@ -18,7 +21,7 @@ export default async function Header() {
     { href: "#noticias", label: messages.header.navigation.news },
   ];
   const localeLinks = (
-    <div role="group" aria-label={messages.header.languageLabel} className="flex items-center gap-1 text-xs font-medium">
+    <div role="group" aria-label={messages.header.languageLabel} className={styles.languageSwitch}>
       {(["es", "en"] as const).map((language) => (
         <Link
           key={language}
@@ -26,7 +29,7 @@ export default async function Header() {
           lang={language}
           hrefLang={language}
           aria-current={locale === language ? "page" : undefined}
-          className={`rounded-sm px-2 py-2 focus-visible:outline-offset-2 ${locale === language ? "font-bold underline underline-offset-4" : "text-muted"}`}
+          className={`${styles.languageOption} ${locale === language ? styles.languageActive : ""}`}
         >
           {language.toUpperCase()}
         </Link>
@@ -35,7 +38,7 @@ export default async function Header() {
   );
 
   return (
-    <header className="relative z-20 border-b border-border bg-background">
+    <header id="top" className="relative z-20 border-b border-border bg-background">
       <Container className="flex min-h-20 items-center justify-between gap-5">
         <Link
           href={`/${locale}`}
@@ -52,7 +55,7 @@ export default async function Header() {
               <li key={item.href}>
                 <a
                   href={item.href}
-                  className="rounded-sm text-[0.82rem] font-medium text-brand-dark transition-colors hover:text-muted focus-visible:outline-offset-4"
+                  className={`${styles.navigationLink} rounded-sm text-[0.82rem] font-medium text-brand-dark`}
                 >
                   {item.label}
                 </a>
@@ -65,15 +68,19 @@ export default async function Header() {
           {localeLinks}
           <a
             href={DISCORD_URL}
-            className="inline-flex min-h-11 items-center gap-1 rounded-md border border-brand-dark px-4 text-[0.82rem] font-bold transition-colors hover:bg-brand-dark hover:text-brand-white"
+            className={`${styles.discordLink} ${shimmer.shimmer} ${shimmer.shimmerOnLight} inline-flex min-h-11 items-center gap-2 rounded-md border border-brand-dark px-4 text-[0.82rem] font-bold`}
           >
+            <span className={styles.discordIcon} aria-hidden="true">
+              <DiscordMark tone="black" className={styles.discordIconBlack} />
+              <DiscordMark tone="white" className={styles.discordIconWhite} />
+            </span>
             {messages.header.discord}
             <ArrowUpRight aria-hidden="true" size={16} strokeWidth={1.8} />
           </a>
         </div>
 
         <details className="group relative xl:hidden">
-          <summary className="flex min-h-11 cursor-pointer list-none items-center gap-2 rounded-md border border-border px-3 text-sm font-medium marker:hidden [&::-webkit-details-marker]:hidden">
+          <summary className={`${styles.menuTrigger} flex min-h-11 cursor-pointer list-none items-center gap-2 rounded-md border border-border px-3 text-sm font-medium marker:hidden [&::-webkit-details-marker]:hidden`}>
             <Menu aria-hidden="true" size={19} strokeWidth={1.8} />
             {messages.header.menu}
           </summary>
@@ -84,18 +91,24 @@ export default async function Header() {
             <ul className="grid gap-1">
               {navigation.map((item) => (
                 <li key={item.href}>
-                  <a href={item.href} className="block rounded-md px-3 py-2.5 text-sm font-medium hover:bg-surface">
+                  <a href={item.href} className={`${styles.mobileLink} flex min-h-11 items-center rounded-md px-3 py-2.5 text-sm font-medium`}>
                     {item.label}
                   </a>
                 </li>
               ))}
             </ul>
-            <div className="mt-2 border-t border-border pt-2">{localeLinks}</div>
+            <div className="mt-3 flex items-center justify-between gap-3 border-t border-border pt-3">
+              <span className="text-xs font-bold text-muted">{messages.header.languageLabel}</span>
+              {localeLinks}
+            </div>
             <a
               href={DISCORD_URL}
-              className="mt-3 flex min-h-11 items-center justify-between rounded-md bg-brand-dark px-3 text-sm font-bold text-brand-white"
+              className={`${styles.mobileDiscord} ${shimmer.shimmer} mt-3 flex min-h-11 items-center justify-between rounded-md bg-brand-dark px-3 text-sm font-bold text-brand-white`}
             >
-              {messages.header.discord}
+              <span className="inline-flex items-center gap-2">
+                <DiscordMark tone="white" className={styles.mobileDiscordIcon} />
+                {messages.header.discord}
+              </span>
               <ArrowUpRight aria-hidden="true" size={17} strokeWidth={1.8} />
             </a>
           </nav>

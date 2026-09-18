@@ -1,6 +1,6 @@
 .ecosystem {
   display: grid;
-  gap: 24px;
+  gap: 52px;
   margin-top: 48px;
 }
 
@@ -52,13 +52,79 @@
 }
 
 .profile {
+  position: relative;
   margin-top: 26px;
   padding: 22px;
   border: 1px solid var(--border);
   border-top: 3px solid var(--brand-primary);
   border-radius: 8px;
   background: var(--surface);
+  transition: border-color 180ms ease;
 }
+
+.profile::before {
+  position: absolute;
+  inset: -1px;
+  border: 1px solid var(--brand-primary);
+  border-radius: inherit;
+  content: "";
+  pointer-events: none;
+  opacity: 0;
+}
+.profile::after {
+  position: absolute;
+  inset: -6px;
+  background-image:
+    radial-gradient(circle, var(--brand-white) 0 14%, var(--brand-primary) 22% 49%, transparent 72%),
+    radial-gradient(circle, var(--brand-white) 0 14%, var(--brand-primary) 22% 49%, transparent 72%);
+  background-repeat: no-repeat;
+  background-size: 12px 12px;
+  content: "";
+  pointer-events: none;
+  opacity: 0;
+}
+
+@media (min-width: 1024px) and (hover: hover) {
+  .profile:hover { border-color: var(--brand-primary); }
+}
+@media (min-width: 1024px) {
+  .profile:focus-within { border-color: var(--brand-primary); }
+}
+
+@property --flow-progress { syntax: "<number>"; inherits: true; initial-value: 0; }
+@keyframes ecosystem-flow {
+  0%, 100% { --flow-progress: 0; }
+  80%, 90% { --flow-progress: 1; }
+}
+@keyframes ecosystem-flow-mobile {
+  0%, 100% { --flow-progress: 0; }
+  82%, 90% { --flow-progress: 1; }
+}
+
+@supports (animation-timeline: view()) {
+  @media (max-width: 1023px) and (prefers-reduced-motion: no-preference) {
+    .ecosystem {
+      animation: ecosystem-flow-mobile linear both;
+      animation-timeline: view(block);
+      animation-range: entry 0% exit 100%;
+    }
+    .profile {
+      border-top-color: var(--border);
+    }
+    .audience:first-child { --profile-phase: clamp(0, calc((var(--flow-progress) - 0.10) * 3.33), 1); }
+    .audience:last-child { --profile-phase: clamp(0, calc((var(--flow-progress) - 0.58) * 4.55), 1); }
+    .profile::before {
+      opacity: 0.5;
+      clip-path: inset(0 0 calc((1 - var(--profile-phase)) * 100%) 0);
+    }
+    .profile::after {
+      --point-opacity: min(clamp(0, calc(var(--profile-phase) * 8), 1), clamp(0, calc((1 - var(--profile-phase)) * 8), 1));
+      opacity: var(--point-opacity);
+      background-position: left calc(var(--profile-phase) * 100%), right calc(var(--profile-phase) * 100%);
+    }
+  }
+}
+@media (prefers-reduced-motion: reduce) { .profile { animation: none; transition: none; } }
 
 .profileHeading {
   display: flex;
@@ -147,11 +213,12 @@
   color: var(--brand-dark);
   font-size: 0.8rem;
   font-weight: 700;
-  transition: background-color 150ms ease, color 150ms ease;
+  transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
 }
 
 .cta:hover { background: var(--brand-dark); color: var(--brand-white); }
 .cta:focus-visible { outline: 2px solid var(--brand-dark); outline-offset: 3px; }
+.cta:active { transform: scale(0.985); }
 
 .connection {
   position: relative;
@@ -173,21 +240,21 @@
 
 .connection::before {
   position: absolute;
-  top: -29px;
+  top: -31px;
   bottom: auto;
   left: calc(50% - 1px);
   width: 2px;
-  height: 29px;
+  height: 31px;
   background: var(--brand-primary);
   content: "";
 }
 
 .connection::after {
   position: absolute;
-  bottom: -29px;
+  bottom: -31px;
   left: calc(50% - 1px);
   width: 2px;
-  height: 29px;
+  height: 31px;
   background: var(--brand-primary);
   content: "";
 }
@@ -202,6 +269,52 @@
 }
 
 .connectionMark img { width: 23px; height: 23px; }
+.connectionMark { position: relative; }
+.connectionMark::after {
+  position: absolute;
+  z-index: 2;
+  top: -9px;
+  right: -9px;
+  width: 15px;
+  height: 15px;
+  background: var(--brand-primary);
+  clip-path: polygon(50% 0, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0 50%, 39% 39%);
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.6);
+}
+.connectorLight {
+  position: absolute;
+  z-index: 2;
+  left: calc(50% - 6px);
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(circle, var(--brand-white) 0 14%, var(--brand-primary) 22% 49%, transparent 72%);
+  pointer-events: none;
+  opacity: 0;
+}
+.connectorLightStart { top: -37px; }
+.connectorLightEnd { bottom: -6px; }
+
+@supports (animation-timeline: view()) {
+  @media (max-width: 1023px) and (prefers-reduced-motion: no-preference) {
+    .connection {
+      --hub-phase: clamp(0, calc((var(--flow-progress) - 0.43) * 8), 1);
+      --upper-phase: clamp(0, calc((var(--flow-progress) - 0.30) * 8), 1);
+      --lower-phase: clamp(0, calc((var(--flow-progress) - 0.52) * 10), 1);
+      --spark-phase: min(clamp(0, calc((var(--flow-progress) - 0.43) * 12), 1), clamp(0, calc((0.70 - var(--flow-progress)) * 12), 1));
+    }
+    .connection::before, .connection::after { transform-origin: top; }
+    .connection::before { transform: scaleY(var(--upper-phase)); }
+    .connection::after { transform: scaleY(var(--lower-phase)); }
+    .connectorLightStart { --light-phase: var(--upper-phase); transform: translateY(calc(var(--light-phase) * 31px)); }
+    .connectorLightEnd { --light-phase: var(--lower-phase); transform: translateY(calc(var(--light-phase) * 31px)); }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .connection, .connection::before, .connection::after { animation: none; }
+}
 
 @media (min-width: 1024px) {
   .ecosystem {
@@ -216,19 +329,58 @@
   .audienceDescription { min-height: 112px; }
   .profile { min-height: 250px; }
   .connection { align-self: center; width: 115px; margin-top: 105px; z-index: 1; }
-  .connection::before {
-    top: calc(50% - 1px);
-    bottom: auto;
-    left: -32px;
-    width: calc(100% + 64px);
-    height: 2px;
-  }
-  .connection::after { display: none; }
+  .connection::before,
+  .connection::after { top: calc(50% - 1px); bottom: auto; width: 32px; height: 2px; }
+  .connection::before { left: -32px; }
+  .connection::after { right: -32px; left: auto; }
 }
 
 @media (min-width: 1024px) {
   .ecosystem { grid-template-columns: minmax(0, 1fr) 148px minmax(0, 1fr); gap: 28px; }
   .connection { width: 126px; }
-  .connection::before { left: -45px; width: calc(100% + 90px); }
+  .connection::before { left: -45px; width: 45px; }
+  .connection::after { right: -45px; width: 45px; }
   .profile { padding: 26px; }
+}
+
+@supports (animation-timeline: view()) {
+  @media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+    .ecosystem {
+      animation: ecosystem-flow linear both;
+      animation-timeline: view(block);
+      animation-range: entry 0% exit 100%;
+    }
+    .profile { border-top-color: var(--border); }
+    .profile::before { opacity: 0.5; }
+    .audience:first-child .profile::before {
+      clip-path: inset(0 calc((1 - var(--border-phase)) * 100%) 0 0);
+    }
+    .audience:last-child .profile::before {
+      clip-path: inset(0 0 0 calc((1 - var(--border-phase)) * 100%));
+    }
+    .audience { --border-phase: clamp(0, calc((var(--flow-progress) - 0.20) * 2.86), 1); }
+    .audience .profile::after {
+      --point-opacity: min(clamp(0, calc(var(--border-phase) * 8), 1), clamp(0, calc((1 - var(--border-phase)) * 8), 1));
+      opacity: var(--point-opacity);
+    }
+    .audience:first-child .profile::after { background-position: calc(var(--border-phase) * 100%) top, calc(var(--border-phase) * 100%) bottom; }
+    .audience:last-child .profile::after { background-position: calc((1 - var(--border-phase)) * 100%) top, calc((1 - var(--border-phase)) * 100%) bottom; }
+    .connection {
+      --connector-phase: clamp(0, calc((var(--flow-progress) - 0.55) * 5), 1);
+      --spark-phase: min(clamp(0, calc((var(--flow-progress) - 0.74) * 12), 1), clamp(0, calc((1 - var(--flow-progress)) * 12), 1));
+    }
+    .connection::before { transform-origin: left; transform: scaleX(var(--connector-phase)); }
+    .connection::after { transform-origin: right; transform: scaleX(var(--connector-phase)); }
+    .connectorLightStart { --light-phase: var(--connector-phase); left: -51px; top: calc(50% - 6px); transform: translateX(calc(var(--light-phase) * 45px)); }
+    .connectorLightEnd { --light-phase: var(--connector-phase); right: -51px; left: auto; top: calc(50% - 6px); bottom: auto; transform: translateX(calc(var(--light-phase) * -45px)); }
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .connectorLight {
+      opacity: min(clamp(0, calc(var(--light-phase) * 8), 1), clamp(0, calc((1 - var(--light-phase)) * 8), 1));
+    }
+    .connectionMark::after { opacity: var(--spark-phase, 0); transform: scale(calc(0.6 + var(--spark-phase, 0) * 0.4)); }
+  }
 }

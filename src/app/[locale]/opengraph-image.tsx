@@ -1,4 +1,6 @@
 import { ImageResponse } from "next/og";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { notFound } from "next/navigation";
 import { hasLocale } from "next-intl";
 import { routing } from "@/i18n/routing";
@@ -16,6 +18,8 @@ export default async function OpenGraphImage({ params }: { params: Promise<{ loc
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
   const messages = (await import(`../../messages/${locale}.json`)).default;
+  const symbol = await readFile(join(process.cwd(), "public/brand/symbol-negative.svg"));
+  const symbolDataUrl = `data:image/svg+xml;base64,${symbol.toString("base64")}`;
   return new ImageResponse(
     <div
       style={{
@@ -40,7 +44,10 @@ export default async function OpenGraphImage({ params }: { params: Promise<{ loc
           backgroundColor: "#84c0bf",
         }}
       />
-      <div style={{ display: "flex", fontSize: 92, fontWeight: 700, letterSpacing: -5 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 24, fontSize: 92, fontWeight: 700, letterSpacing: -5 }}>
+        {/* ImageResponse needs a native image element for the official SVG. */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={symbolDataUrl} alt="" width={70} height={70} />
         {SITE_NAME}
       </div>
       <div

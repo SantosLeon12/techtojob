@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getLocale } from "next-intl/server";
 import Container from "@/components/ui/Container";
-import { DISCORD_URL, FOOTER_PENDING_URLS } from "@/lib/constants";
+import { DISCORD_URL, FOOTER_PENDING_URLS, LINKEDIN_URL } from "@/lib/constants";
 import { getSiteMessages } from "@/i18n/messages";
 import styles from "./Footer.module.css";
 
@@ -43,7 +43,7 @@ export default async function Footer() {
               <h2>{footer.socialHeading}</h2>
               <ul>
                 <li><a href={DISCORD_URL}>{footer.discord}</a></li>
-                <li>{FOOTER_PENDING_URLS.linkedin ? <a href={FOOTER_PENDING_URLS.linkedin}>{footer.linkedin}</a> : <span className={styles.pending}>{footer.linkedin}</span>}</li>
+                <li><a href={LINKEDIN_URL}>{footer.linkedin}</a></li>
               </ul>
             </div>
             <div className={styles.group}>

@@ -1,13 +1,11 @@
-// Replace with the official invitation before deployment.
-export const DISCORD_URL = "#";
+export const DISCORD_URL = "https://discord.gg/pzCa8esFGA";
+export const LINKEDIN_URL = "https://www.linkedin.com/company/techtojob/posts/?feedView=all";
 
-// Add verified destinations before enabling these footer links.
+// Keep legal labels noninteractive until their destinations are confirmed.
 export const FOOTER_PENDING_URLS: {
-  linkedin: string | null;
   privacy: string | null;
   legal: string | null;
 } = {
-  linkedin: null,
   privacy: null,
   legal: null,
 };

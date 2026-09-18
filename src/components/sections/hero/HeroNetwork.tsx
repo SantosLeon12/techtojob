@@ -11,6 +11,7 @@ export default async function HeroNetwork() {
     <div className={styles.network} aria-label={network.accessibleLabel} role="img">
       <div className={styles.connectionVertical} aria-hidden="true" />
       <div className={styles.connectionHorizontal} aria-hidden="true" />
+      <div className={styles.connectionCommunity} aria-hidden="true" />
       <div className={styles.connectionLower} aria-hidden="true" />
 
       <div className={styles.center} aria-hidden="true">

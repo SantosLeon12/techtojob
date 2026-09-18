@@ -251,6 +251,7 @@
     "description": "Entra en TechToJob, comparte lo que estás construyendo y conoce a quienes ya forman parte de la comunidad.",
     "cta": "Entrar a TechToJob en Discord"
   },
+  "backToTop": { "label": "Volver al inicio" },
   "footer": {
     "brandName": "TechToJob",
     "brandHomeLabel": "TechToJob, volver al inicio",

@@ -12,6 +12,7 @@
 
 .connectionVertical,
 .connectionHorizontal,
+.connectionCommunity,
 .connectionLower {
   position: absolute;
   z-index: -1;
@@ -37,6 +38,60 @@
   left: 15%;
   right: 15%;
   height: 2px;
+}
+
+.connectionCommunity { display: none; }
+
+@keyframes reveal-node {
+  from { opacity: 0.2; transform: translateY(6px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes trace-horizontal {
+  from { opacity: 0.2; transform: scaleX(0); }
+  to { opacity: 1; transform: scaleX(1); }
+}
+@keyframes trace-vertical {
+  from { opacity: 0.2; transform: scaleY(0); }
+  to { opacity: 1; transform: scaleY(1); }
+}
+@keyframes reveal-node-in-view {
+  0%, 100% { opacity: 0.2; transform: translateY(6px) scale(0.98); }
+  25%, 90% { opacity: 1; transform: none; }
+}
+@keyframes reveal-node-in-view-late {
+  0%, 6%, 100% { opacity: 0.2; transform: translateY(6px) scale(0.98); }
+  32%, 90% { opacity: 1; transform: none; }
+}
+@keyframes trace-horizontal-in-view {
+  0%, 100% { opacity: 0.2; transform: scaleX(0); }
+  30%, 90% { opacity: 1; transform: scaleX(1); }
+}
+@keyframes trace-vertical-in-view {
+  0%, 100% { opacity: 0.2; transform: scaleY(0); }
+  60%, 90% { opacity: 1; transform: scaleY(1); }
+}
+
+@supports (animation-timeline: view()) {
+  @media (max-width: 1023px) and (prefers-reduced-motion: no-preference) {
+    .center, .talent, .company, .tournament, .community {
+      animation: reveal-node-in-view linear both;
+      animation-timeline: view(block);
+      animation-range: entry 0% exit 100%;
+    }
+    .company, .community { animation-name: reveal-node-in-view-late; }
+    .connectionVertical {
+      transform-origin: top;
+      animation: trace-vertical-in-view linear both;
+      animation-timeline: view(block);
+      animation-range: entry 0% exit 100%;
+    }
+    .connectionHorizontal, .connectionLower {
+      transform-origin: left;
+      animation: trace-horizontal-in-view linear both;
+      animation-timeline: view(block);
+      animation-range: entry 0% exit 100%;
+    }
+  }
 }
 
 .center {
@@ -163,6 +218,9 @@
 
 @media (min-width: 1024px) {
   .network {
+    --hub-left: 48%;
+    --hub-width: 160px;
+    --community-width: 110px;
     display: block;
     height: 600px;
     max-width: 600px;
@@ -174,23 +232,76 @@
   .connectionVertical {
     top: 15%;
     bottom: 15%;
-    left: 51%;
+    left: calc(var(--hub-left) + 80px);
   }
   .connectionHorizontal {
     top: 48%;
     left: 6%;
-    right: 3%;
+    right: calc(100% - var(--hub-left));
+  }
+  .connectionCommunity {
+    display: block;
+    top: 48%;
+    left: calc(var(--hub-left) + var(--hub-width));
+    right: var(--community-width);
+    height: 2px;
   }
   .center {
     position: absolute;
     z-index: 2;
-    top: 43%;
-    left: 48%;
+    top: calc(48% - 38px);
+    left: var(--hub-left);
+    width: var(--hub-width);
     margin: 0;
+    gap: 8px;
+    padding: 8px;
   }
   .card { position: absolute; }
   .talent { top: 3%; left: 35%; width: 50%; }
   .company { top: 32%; left: 0; width: 43%; }
   .tournament { right: 1%; bottom: 2%; width: 55%; }
-  .community { position: absolute; right: 0; top: 36%; background: var(--brand-white); }
+  .community {
+    position: absolute;
+    top: calc(48% - 21px);
+    right: 0;
+    width: var(--community-width);
+    justify-content: center;
+    background: var(--brand-white);
+  }
+}
+
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  .center { animation: reveal-node 420ms ease-out both; }
+  .connectionHorizontal {
+    transform-origin: right;
+    animation: trace-horizontal 620ms ease-out 180ms both;
+  }
+  .connectionCommunity {
+    transform-origin: left;
+    animation: trace-horizontal 620ms ease-out 180ms both;
+  }
+  .connectionVertical {
+    transform-origin: center;
+    animation: trace-vertical 680ms ease-out 180ms both;
+  }
+  .talent, .company { animation: reveal-node 540ms ease-out 420ms both; }
+  .community { animation: reveal-node 500ms ease-out 520ms both; }
+  .tournament { animation: reveal-node 500ms ease-out 620ms both; }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .network { --hub-left: 44%; --hub-width: 145px; --community-width: 105px; }
+  .connectionVertical { left: calc(var(--hub-left) + 72.5px); }
+  .connectionCommunity { right: calc(var(--community-width) - 16px); }
+  .community { right: -16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .network { animation: none; }
+  .talent, .company, .center, .community, .tournament,
+  .connectionHorizontal, .connectionVertical, .connectionCommunity, .connectionLower {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
 }

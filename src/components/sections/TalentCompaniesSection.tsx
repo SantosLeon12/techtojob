@@ -63,6 +63,8 @@ export default async function TalentCompaniesSection() {
           </article>
 
           <div className={styles.connection} aria-hidden="true">
+            <span className={`${styles.connectorLight} ${styles.connectorLightStart}`} />
+            <span className={`${styles.connectorLight} ${styles.connectorLightEnd}`} />
             <div className={styles.connectionMark}>
               <Image src="/brand/symbol-positive.svg" alt="" width={32} height={32} />
             </div>
