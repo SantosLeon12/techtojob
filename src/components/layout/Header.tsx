@@ -26,6 +26,7 @@ export default async function Header() {
         <Link
           key={language}
           href={`/${language}`}
+          scroll={false}
           lang={language}
           hrefLang={language}
           aria-current={locale === language ? "page" : undefined}

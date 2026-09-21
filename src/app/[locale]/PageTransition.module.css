@@ -1,0 +1,12 @@
+@keyframes reveal-localized-content {
+  from { opacity: 0.88; }
+  to { opacity: 1; }
+}
+
+.content {
+  animation: reveal-localized-content 260ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .content { animation: none; }
+}

@@ -14,6 +14,7 @@ import { setRequestLocale } from "next-intl/server";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 import { LINKEDIN_URL } from "@/lib/constants";
 import BackToTop from "@/components/ui/BackToTop";
+import styles from "./PageTransition.module.css";
 
 export default async function Home({ params }: PageProps<"/[locale]">) {
   const { locale } = await params;
@@ -37,7 +38,7 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
         }}
       />
       <Header />
-      <main>
+      <main className={styles.content}>
         <HeroSection />
         <HowItWorksSection />
         <TalentCompaniesSection />
