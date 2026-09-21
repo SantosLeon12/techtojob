@@ -1,0 +1,69 @@
+.section {
+  padding: 72px 0 80px;
+  background: var(--brand-dark);
+  color: var(--brand-white);
+}
+.content { max-width: 60rem; }
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--brand-primary);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+}
+.eyebrowDot { width: 7px; height: 7px; border-radius: 2px; background: var(--brand-primary); }
+.title {
+  max-width: 19ch;
+  margin-top: 22px;
+  font-size: clamp(2.1rem, 5vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.14;
+  letter-spacing: -0.058em;
+}
+.description {
+  max-width: 42rem;
+  margin-top: 25px;
+  color: var(--brand-white);
+  font-size: 1rem;
+  line-height: 1.9;
+}
+.cta {
+  display: inline-flex;
+  min-height: 52px;
+  max-width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 34px;
+  padding: 13px 20px;
+  border-radius: 6px;
+  background: var(--brand-primary);
+  color: var(--brand-dark);
+  font-size: 0.86rem;
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: center;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+.cta:hover { background: var(--brand-white); }
+.cta:focus-visible { outline: 2px solid var(--brand-white); outline-offset: 4px; }
+.cta:active { transform: scale(0.985); }
+.cta svg { flex: none; }
+.discordIcon { flex: none; transition: transform 180ms ease; }
+.cta svg { transition: transform 180ms ease; }
+.cta:hover .discordIcon,
+.cta:focus-visible .discordIcon { transform: scale(1.05); }
+.cta:hover svg,
+.cta:focus-visible svg { transform: translateX(2px); }
+@media (prefers-reduced-motion: reduce) {
+  .cta, .cta svg, .discordIcon { transition-duration: 0.01ms; }
+  .cta:active, .cta:hover .discordIcon, .cta:focus-visible .discordIcon,
+  .cta:hover svg, .cta:focus-visible svg { transform: none; }
+}
+
+@media (min-width: 1024px) {
+  .section { padding: 104px 0 112px; }
+}

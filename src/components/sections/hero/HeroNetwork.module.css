@@ -1,0 +1,307 @@
+.network {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  width: 100%;
+  max-width: 480px;
+  margin-inline: auto;
+  padding-block: 5px 20px;
+  isolation: isolate;
+}
+
+.connectionVertical,
+.connectionHorizontal,
+.connectionCommunity,
+.connectionLower {
+  position: absolute;
+  z-index: -1;
+  background: var(--brand-primary);
+}
+
+.connectionVertical {
+  top: 80px;
+  bottom: 58px;
+  left: calc(50% - 1px);
+  width: 2px;
+}
+
+.connectionHorizontal {
+  top: 225px;
+  left: 15%;
+  right: 15%;
+  height: 2px;
+}
+
+.connectionLower {
+  bottom: 75px;
+  left: 15%;
+  right: 15%;
+  height: 2px;
+}
+
+.connectionCommunity { display: none; }
+
+@keyframes reveal-node {
+  from { transform: translateY(6px) scale(0.98); }
+  to { transform: none; }
+}
+@keyframes trace-horizontal {
+  from { opacity: 0.2; transform: scaleX(0); }
+  to { opacity: 1; transform: scaleX(1); }
+}
+@keyframes trace-vertical {
+  from { opacity: 0.2; transform: scaleY(0); }
+  to { opacity: 1; transform: scaleY(1); }
+}
+@keyframes reveal-node-in-view {
+  0%, 100% { transform: translateY(6px) scale(0.98); }
+  25%, 90% { transform: none; }
+}
+@keyframes reveal-node-in-view-late {
+  0%, 6%, 100% { transform: translateY(6px) scale(0.98); }
+  32%, 90% { transform: none; }
+}
+@keyframes trace-horizontal-in-view {
+  0%, 100% { opacity: 0.2; transform: scaleX(0); }
+  30%, 90% { opacity: 1; transform: scaleX(1); }
+}
+@keyframes trace-vertical-in-view {
+  0%, 100% { opacity: 0.2; transform: scaleY(0); }
+  60%, 90% { opacity: 1; transform: scaleY(1); }
+}
+
+@supports (animation-timeline: view()) {
+  @media (max-width: 1023px) and (prefers-reduced-motion: no-preference) {
+    .center, .talent, .company, .tournament, .community {
+      animation: reveal-node-in-view linear both;
+      animation-timeline: view(block);
+      animation-range: entry 0% exit 100%;
+    }
+    .company, .community { animation-name: reveal-node-in-view-late; }
+    .connectionVertical {
+      transform-origin: top;
+      animation: trace-vertical-in-view linear both;
+      animation-timeline: view(block);
+      animation-range: entry 0% exit 100%;
+    }
+    .connectionHorizontal, .connectionLower {
+      transform-origin: left;
+      animation: trace-horizontal-in-view linear both;
+      animation-timeline: view(block);
+      animation-range: entry 0% exit 100%;
+    }
+  }
+}
+
+.center {
+  grid-column: 1 / -1;
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-height: 76px;
+  margin-bottom: 26px;
+  padding: 9px 15px 9px 9px;
+  border: 1px solid var(--brand-primary);
+  border-radius: 10px;
+  background: var(--brand-white);
+  box-shadow: 0 12px 30px rgb(47 52 54 / 0.06);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.centerIcon {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border-radius: 8px;
+  background: var(--brand-primary);
+}
+
+.centerIcon img { width: 28px; height: 28px; }
+
+.card {
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--brand-white);
+  box-shadow: 0 8px 24px rgb(47 52 54 / 0.045);
+}
+
+.cardHead {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 13px;
+  color: var(--brand-dark);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.cardIcon {
+  display: grid;
+  width: 26px;
+  height: 26px;
+  flex: none;
+  place-items: center;
+  border-radius: 6px;
+  background: var(--brand-primary);
+}
+
+.card strong {
+  display: block;
+  color: var(--brand-dark);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.card small {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 13px;
+  padding: 5px 7px;
+  border-radius: 4px;
+  background: var(--surface);
+  color: var(--brand-dark);
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.statusDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--brand-primary);
+}
+
+.talent { grid-column: 1; grid-row: 2; }
+.company { grid-column: 2; grid-row: 2; }
+.tournament { grid-column: 1; grid-row: 3; width: 100%; }
+.community {
+  grid-column: 2;
+  grid-row: 3;
+  align-self: center;
+  justify-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 42px;
+  padding: 9px 10px;
+  border: 1px solid var(--brand-primary);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--brand-dark);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+@media (min-width: 640px) {
+  .network { gap: 18px; }
+  .card { padding: 18px; }
+  .card strong { font-size: 14px; }
+  .card small { font-size: 11px; }
+}
+
+@media (min-width: 1024px) {
+  .network {
+    --hub-left: 48%;
+    --hub-width: 160px;
+    --community-width: 110px;
+    display: block;
+    height: 600px;
+    max-width: 600px;
+    padding: 0;
+    margin-left: -20px;
+    transform: translateY(-24px);
+  }
+  .connectionLower { display: none; }
+  .connectionVertical {
+    top: 15%;
+    bottom: 15%;
+    left: calc(var(--hub-left) + 80px);
+  }
+  .connectionHorizontal {
+    top: 48%;
+    left: 6%;
+    right: calc(100% - var(--hub-left));
+  }
+  .connectionCommunity {
+    display: block;
+    top: 48%;
+    left: calc(var(--hub-left) + var(--hub-width));
+    right: var(--community-width);
+    height: 2px;
+  }
+  .center {
+    position: absolute;
+    z-index: 2;
+    top: calc(48% - 38px);
+    left: var(--hub-left);
+    width: var(--hub-width);
+    margin: 0;
+    gap: 8px;
+    padding: 8px;
+  }
+  .card { position: absolute; }
+  .talent { top: 3%; left: 35%; width: 50%; }
+  .company { top: 32%; left: 0; width: 43%; }
+  .tournament { right: 1%; bottom: 2%; width: 55%; }
+  .community {
+    position: absolute;
+    top: calc(48% - 21px);
+    right: 0;
+    width: var(--community-width);
+    justify-content: center;
+    background: var(--brand-white);
+  }
+}
+
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  .center { animation: reveal-node 420ms ease-out both; }
+  .connectionHorizontal {
+    transform-origin: right;
+    animation: trace-horizontal 620ms ease-out 180ms both;
+  }
+  .connectionCommunity {
+    transform-origin: left;
+    animation: trace-horizontal 620ms ease-out 180ms both;
+  }
+  .connectionVertical {
+    transform-origin: center;
+    animation: trace-vertical 680ms ease-out 180ms both;
+  }
+  .talent, .company { animation: reveal-node 540ms ease-out 420ms both; }
+  .community { animation: reveal-node 500ms ease-out 520ms both; }
+  .tournament { animation: reveal-node 500ms ease-out 620ms both; }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .network { --hub-left: 44%; --hub-width: 145px; --community-width: 105px; }
+  .connectionVertical { left: calc(var(--hub-left) + 72.5px); }
+  .connectionCommunity { right: calc(var(--community-width) - 16px); }
+  .community { right: -16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .network { animation: none; }
+  .talent, .company, .center, .community, .tournament,
+  .connectionHorizontal, .connectionVertical, .connectionCommunity, .connectionLower {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

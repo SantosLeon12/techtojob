@@ -1,0 +1,19 @@
+.link {
+  position: fixed;
+  z-index: 30;
+  right: calc(16px + env(safe-area-inset-right));
+  bottom: calc(16px + env(safe-area-inset-bottom));
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid var(--brand-dark);
+  border-radius: 8px;
+  background: var(--brand-white);
+  color: var(--brand-dark);
+  transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+.link:hover,
+.link:focus-visible { background: var(--brand-dark); color: var(--brand-white); transform: translateY(-2px); }
+.link:active { transform: translateY(1px); }
+@media (prefers-reduced-motion: reduce) { .link { transition-duration: 0.01ms; } }

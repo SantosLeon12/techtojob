@@ -1,0 +1,33 @@
+.shimmer {
+  --shimmer-color: rgb(255 255 255 / 0.24);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.shimmer::before {
+  position: absolute;
+  top: -25%;
+  bottom: -25%;
+  left: -20%;
+  width: 20%;
+  background: var(--shimmer-color);
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(0) skewX(-20deg);
+  animation: discord-shimmer 6.8s linear infinite;
+}
+
+.shimmerOnLight { --shimmer-color: rgb(132 192 191 / 0.45); }
+
+@keyframes discord-shimmer {
+  0%, 7% { opacity: 0; transform: translateX(0) skewX(-20deg); }
+  8% { opacity: 1; transform: translateX(0) skewX(-20deg); }
+  19% { opacity: 1; transform: translateX(600%) skewX(-20deg); }
+  20%, 100% { opacity: 0; transform: translateX(600%) skewX(-20deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shimmer::before { animation: none; opacity: 0; }
+}

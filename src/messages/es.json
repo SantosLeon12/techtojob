@@ -1,10 +1,276 @@
 {
   "metadata": {
-    "title": "TechToJob | Comunidad de talento y empresas tecnológicas",
-    "description": "Conecta con una comunidad de desarrolladores y empresas tech en español. Descubre talento, comparte oportunidades y construye tu próximo paso profesional."
+    "title": "TechToJob | Comunidad tech para talento y empresas",
+    "description": "TechToJob conecta desarrolladores y empresas en una comunidad tecnológica en español para compartir proyectos, participar en torneos y descubrir oportunidades."
   },
   "foundation": {
     "title": "TechToJob",
     "description": "Comunidad de desarrolladores y empresas tech en español."
+  },
+  "header": {
+    "brandName": "TechToJob",
+    "homeLabel": "TechToJob, ir al inicio",
+    "navigationLabel": "Navegación principal",
+    "mobileNavigationLabel": "Navegación móvil",
+    "languageLabel": "Idioma",
+    "menu": "Menú",
+    "discord": "Entrar al Discord",
+    "navigation": {
+      "howItWorks": "Cómo funciona",
+      "talent": "Talento",
+      "companies": "Empresas",
+      "tournaments": "Torneos",
+      "community": "Comunidad",
+      "news": "Noticias"
+    }
+  },
+  "hero": {
+    "eyebrow": "Comunidad de desarrolladores y empresas tech en español",
+    "title": "El lugar donde el talento tech se hace visible",
+    "description": "TechToJob no es otro portal de empleo. Es una comunidad en español donde desarrolladores y empresas comparten lo que hacen, crean conexiones, participan en torneos y descubren oportunidades a partir de su participación.",
+    "cta": "Entrar a TechToJob en Discord",
+    "microcopy": "Talento, empresas y comunidad en un mismo espacio.",
+    "network": {
+      "accessibleLabel": "TechToJob conecta talento, empresas, torneos y comunidad",
+      "center": "TechToJob",
+      "talent": {
+        "label": "Talento",
+        "title": "Frontend Developer",
+        "skills": "React · TypeScript",
+        "status": "Disponible"
+      },
+      "company": {
+        "label": "Empresa",
+        "title": "Buscando Backend Developer",
+        "skills": "Python · FastAPI",
+        "status": "Remoto"
+      },
+      "tournament": {
+        "label": "Torneos",
+        "title": "Retos abiertos",
+        "description": "Construye · Comparte · Destaca"
+      },
+      "community": "Comunidad"
+    }
+  },
+  "howItWorks": {
+    "eyebrow": "Cómo funciona",
+    "title": "Las oportunidades empiezan mucho antes de una oferta",
+    "description": "En TechToJob no llegas únicamente a buscar empleo. Te haces visible participando, compartiendo lo que sabes hacer y conectando con personas y empresas del sector.",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Entra en la comunidad",
+        "description": "Descubre los canales, las áreas técnicas y a las personas que forman parte de TechToJob."
+      },
+      {
+        "number": "02",
+        "title": "Haz visible tu perfil",
+        "description": "Comparte tu stack, nivel, disponibilidad y aquello en lo que estás trabajando."
+      },
+      {
+        "number": "03",
+        "title": "Participa",
+        "description": "Conversa, aporta, participa en torneos y demuestra lo que sabes hacer más allá de un currículum."
+      },
+      {
+        "number": "04",
+        "title": "Conecta",
+        "description": "Profesionales y empresas pueden descubrir perfiles, proyectos e intereses dentro de la comunidad."
+      },
+      {
+        "number": "05",
+        "title": "Encuentra oportunidades",
+        "description": "Cuando surge una necesidad, las conexiones ya existen y la conversación puede empezar de forma natural."
+      }
+    ]
+  },
+  "talentCompanies": {
+    "eyebrow": "Talento y empresas",
+    "title": "Dos formas de entrar. Un mismo lugar para encontrarse.",
+    "description": "TechToJob permite que desarrolladores y empresas se descubran dentro de la comunidad antes de que todo empiece con una candidatura.",
+    "connection": "TechToJob",
+    "technologiesLabel": "Tecnologías",
+    "talent": {
+      "label": "Talento",
+      "title": "Haz visible lo que sabes hacer",
+      "description": "Publica tu perfil con tu stack, nivel y disponibilidad para que otras personas y empresas sepan en qué trabajas y qué estás buscando.",
+      "profileLabel": "Perfil de talento",
+      "role": "Frontend Developer",
+      "level": "Mid Level",
+      "technologies": ["React", "TypeScript", "Next.js"],
+      "availabilityLabel": "Disponibilidad",
+      "availability": "Disponible",
+      "cta": "Ofrécete como talento"
+    },
+    "companies": {
+      "label": "Empresa",
+      "title": "Encuentra perfiles antes de publicar una oferta",
+      "description": "Comparte qué perfil necesitas, las tecnologías del proyecto y la modalidad para conectar con profesionales que ya forman parte de la comunidad.",
+      "profileLabel": "Perfil buscado",
+      "role": "Backend Developer",
+      "technologies": ["Python", "FastAPI", "PostgreSQL"],
+      "modalityLabel": "Modalidad",
+      "modality": "Remoto",
+      "cta": "Publicar como empresa"
+    }
+  },
+  "tournaments": {
+    "eyebrow": "Torneos abiertos",
+    "title": "Construye algo. Compártelo. Deja que tu trabajo hable por ti.",
+    "description": "Los torneos de TechToJob son retos abiertos donde puedes poner a prueba tus habilidades, crear proyectos reales y hacer visible cómo trabajas frente a otros profesionales y empresas.",
+    "feature": {
+      "label": "Torneo abierto",
+      "title": "Landing Challenge",
+      "areasLabel": "Áreas del reto",
+      "areas": ["Diseño", "Desarrollo", "Responsive", "SEO", "Accesibilidad"],
+      "stages": ["Construye", "Entrega", "Comparte"]
+    },
+    "steps": [
+      {
+        "number": "01",
+        "title": "Construye",
+        "description": "Resuelve un reto con tus propias decisiones técnicas y creativas."
+      },
+      {
+        "number": "02",
+        "title": "Comparte",
+        "description": "Presenta tu trabajo a la comunidad y explica cómo llegaste al resultado."
+      },
+      {
+        "number": "03",
+        "title": "Destaca",
+        "description": "Haz visible tu forma de trabajar más allá de un currículum."
+      }
+    ],
+    "cta": "Participar en los torneos"
+  },
+  "networking": {
+    "eyebrow": "Networking",
+    "title": "Encuentra a la gente que habla tu mismo idioma técnico",
+    "description": "TechToJob reúne profesionales de distintas áreas para compartir experiencia, resolver dudas, descubrir proyectos y crear conexiones dentro del sector tecnológico.",
+    "community": "Comunidad tech",
+    "areas": [
+      "Frontend",
+      "Backend",
+      "Mobile",
+      "UX / UI",
+      "DevOps",
+      "Data",
+      "Inteligencia Artificial",
+      "QA"
+    ],
+    "statement": "No todo empieza con una vacante. A veces empieza con una conversación.",
+    "cta": "Conocer la comunidad"
+  },
+  "testimonials": {
+    "eyebrow": "Dentro de la comunidad",
+    "title": "Las mejores conexiones empiezan entre personas",
+    "description": "TechToJob se construye alrededor de quienes participan, comparten lo que saben y encuentran nuevas formas de colaborar dentro del sector.",
+    "disclosure": "Testimonios de muestra para la propuesta del torneo.",
+    "entries": [
+      {
+        "name": "Perfil 01",
+        "role": "Frontend Developer",
+        "quote": "Encontrar un espacio donde puedes hablar de lo que estás construyendo cambia mucho la forma de hacer networking.",
+        "image": null,
+        "profileUrl": null
+      },
+      {
+        "name": "Perfil 02",
+        "role": "Backend Developer",
+        "quote": "Compartir soluciones y recibir feedback de otros perfiles técnicos aporta mucho más que limitarse a publicar un currículum.",
+        "image": null,
+        "profileUrl": null
+      },
+      {
+        "name": "Perfil 03",
+        "role": "UX/UI Designer",
+        "quote": "La comunidad permite conocer cómo piensa y trabaja la gente antes de que exista una oportunidad formal.",
+        "image": null,
+        "profileUrl": null
+      },
+      {
+        "name": "Perfil 04",
+        "role": "Talent Acquisition",
+        "quote": "Poder descubrir perfiles por lo que comparten y construyen aporta contexto que una candidatura tradicional no siempre muestra.",
+        "image": null,
+        "profileUrl": null
+      },
+      {
+        "name": "Perfil 05",
+        "role": "Mobile Developer",
+        "quote": "Los torneos y las conversaciones técnicas hacen que participar también sea una forma de demostrar lo que sabes hacer.",
+        "image": null,
+        "profileUrl": null
+      }
+    ]
+  },
+  "news": {
+    "eyebrow": "Noticias y novedades",
+    "title": "Lo que está pasando dentro de TechToJob",
+    "description": "Torneos, novedades de la comunidad y recursos para seguir construyendo una red tecnológica más abierta y participativa.",
+    "disclosure": "Contenidos de muestra para la propuesta del torneo.",
+    "entries": [
+      {
+        "category": "Torneos",
+        "title": "Nuevos retos para mostrar cómo construyes",
+        "description": "Los torneos plantean problemas abiertos donde diseño, desarrollo y decisiones técnicas forman parte del resultado.",
+        "linkLabel": "Conocer los torneos de TechToJob",
+        "href": "#torneos"
+      },
+      {
+        "category": "Comunidad",
+        "title": "Más espacios para compartir conocimiento técnico",
+        "description": "La comunidad crece alrededor de conversaciones por especialidad, proyectos compartidos y aprendizaje entre profesionales.",
+        "linkLabel": "Descubrir la comunidad",
+        "href": "#comunidad"
+      },
+      {
+        "category": "Talento",
+        "title": "Una forma distinta de hacer visible tu perfil",
+        "description": "Compartir lo que haces, cómo trabajas y qué tecnologías utilizas aporta contexto mucho antes de una candidatura.",
+        "linkLabel": "Ver cómo participar como talento",
+        "href": "#talento"
+      }
+    ]
+  },
+  "newsletter": {
+    "eyebrow": "Mantente al día",
+    "title": "Lo importante de TechToJob, directo a tu correo",
+    "description": "Recibe novedades sobre torneos, comunidad, oportunidades y nuevos recursos sin tener que perseguir cada actualización.",
+    "emailLabel": "Correo electrónico",
+    "emailPlaceholder": "tu@correo.com",
+    "submit": "Suscribirme",
+    "reassurance": "Solo novedades relevantes. Sin ruido.",
+    "unavailable": "La suscripción estará disponible próximamente."
+  },
+  "finalCta": {
+    "eyebrow": "El siguiente paso",
+    "title": "Tu próxima oportunidad puede empezar con una conversación",
+    "description": "Entra en TechToJob, comparte lo que estás construyendo y conoce a quienes ya forman parte de la comunidad.",
+    "cta": "Entrar a TechToJob en Discord"
+  },
+  "backToTop": { "label": "Volver al inicio" },
+  "footer": {
+    "brandName": "TechToJob",
+    "brandHomeLabel": "TechToJob, volver al inicio",
+    "description": "Comunidad de desarrolladores y empresas tech en español.",
+    "navigationLabel": "Navegación del pie de página",
+    "communityHeading": "Comunidad",
+    "contentHeading": "Contenido",
+    "socialHeading": "Redes",
+    "legalHeading": "Legal",
+    "howItWorks": "Cómo funciona",
+    "talent": "Talento",
+    "companies": "Empresas",
+    "tournaments": "Torneos",
+    "networking": "Networking",
+    "news": "Noticias",
+    "discord": "Discord",
+    "linkedin": "LinkedIn",
+    "privacy": "Privacidad",
+    "legalNotice": "Aviso legal",
+    "copyright": "© TechToJob"
   }
 }
